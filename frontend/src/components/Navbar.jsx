@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState }  from "react";
 import { FiAlignJustify } from "react-icons/fi";
 import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
@@ -6,13 +6,19 @@ import { CiSearch } from "react-icons/ci";
 import Avatar from "react-avatar";
 
 
+
 const Navbar = () => {
+ const [open, setOpen] = useState(true)
+  const toggelHandeler = ()=>{
+    setOpen(!open)
+
+  }
   return (
-    <nav className="flex items-center justify-between px-4 py-3 bg-gray-700 text-white shadow-md">
+    <nav className="flex items-center justify-between px-4 py-3 bg-gray-700 text-white shadow-md fixed w-full top-0 z-20">
       
       {/* Left: Logo & Menu Icon */}
       <div className="flex items-center gap-1 md:gap-4">
-        <FiAlignJustify size={26} className="cursor-pointer hover:text-gray-400" />
+        <FiAlignJustify onClick={toggelHandeler} size={26} className="cursor-pointer hover:text-gray-400" />
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/YouTube_2024.svg/230px-YouTube_2024.svg.png"
           alt="logo"
