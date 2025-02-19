@@ -4,13 +4,16 @@ import { RiVideoAddLine } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import Avatar from "react-avatar";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../redux/appSlice";
 
 
 
 const Navbar = () => {
- const [open, setOpen] = useState(true)
+  const dispatch = useDispatch()
+
   const toggelHandeler = ()=>{
-    setOpen(!open)
+    dispatch( toggleSidebar())
 
   }
   return (

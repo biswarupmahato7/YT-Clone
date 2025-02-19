@@ -25,7 +25,7 @@ const FilteredBtn = () => {
       {btns.map((item, index) => (
         <button
           key={index}
-          className="bg-gray-700 text-gray-300 font-medium px-4 py-1 rounded-md hover:bg-gray-600 transition-all duration-200 whitespace-nowrap"
+          className="hidden lg:block md:block bg-gray-700 text-gray-300 font-medium px-4 py-1 rounded-md hover:bg-gray-600 transition-all duration-200 whitespace-nowrap"
         >
           {item}
         </button>
