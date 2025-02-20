@@ -1,17 +1,23 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Feed from "./components/Feed";
+
+import Body from "./components/Body";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body />,
+    
+  }
+])
 
 const App = () => {
   return (
     <div className="">
       <Navbar />
-      <div className="flex">
-        <Sidebar />
-        <Feed/>
-      </div>
+      <RouterProvider router={appRouter} />
     </div>
   );
 };
