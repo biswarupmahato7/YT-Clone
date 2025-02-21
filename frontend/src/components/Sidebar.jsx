@@ -16,7 +16,7 @@ const Sidebar = () => {
     <>
       {/* Desktop Sidebar (Visible on md & larger screens) */}
       <div
-        className="hidden relative left-0 w-[40%] mr-5 md:flex md:flex-col h-[100vh] overflow-y-scroll text-gray-200 md:w-[10%] md:ml-2 lg:w-[12%] px-4 py-6 [&::-webkit-scrollbar]:hidden 
+        className="hidden  relative left-0 w-[40%] mr-5 md:flex md:flex-col h-[100vh] overflow-y-scroll text-gray-200 md:w-[10%] md:ml-2 lg:w-[12%] px-4 py-6 [&::-webkit-scrollbar]:hidden 
         [-ms-overflow-style:'none'] [scrollbar-width:'none'] "
       >
         {[
