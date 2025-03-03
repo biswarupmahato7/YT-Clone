@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import axios from "axios"
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -9,15 +10,34 @@ const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith("image")) {
-      setProfilePic(file);
-      setPreviewUrl(URL.createObjectURL(file));
-    } else {
-      alert("Please select a valid image file.");
+  // const handleFileChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file && file.type.startsWith("image")) {
+  //     setProfilePic(file);
+  //     setPreviewUrl(URL.createObjectURL(file));
+  //   } else {
+  //     alert("Please select a valid image file.");
+  //   }
+  // };
+
+  const uploadImage = async (e)=>{
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0])
+    data.append('upload_preset', 'YT-CLONE')
+    try{
+      console.log('Uploading')
+      const response = await axios.post('https://api.cloudinary.com/v1_1/dctttnfjl/image/upload',data)
+       console.log(response)
+      const imgUrl = response.data.url
+      console.log(imgUrl)
+      setProfilePic(imgUrl)
+      setPreviewUrl(imgUrl); 
+    }catch(error){
+       console.log(error)
     }
-  };
+
+  }
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -38,7 +58,8 @@ const SignUp = () => {
           )}
           <label className="mt-2 text-sm text-blue-400 cursor-pointer hover:underline">
             Upload Profile Picture
-            <input type="file" className="hidden" accept="image/*" onChange={handleFileChange} />
+            <input type="file" 
+            className="hidden" accept="image/*" onChange={uploadImage} />
           </label>
         </div>
 
