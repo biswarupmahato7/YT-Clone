@@ -19,6 +19,7 @@ const Navbar = () => {
   const [suggestion, setSuggestion] = useState(false);
   const { searchSuggestion } = useSelector((store) => store.app);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userPic, setUserPic] = useState("https://th.bing.com/th/id/OIP.Wy2uo_y-ttULYs4chLmqSAAAAA?rs=1&pid=ImgDetMain")
 
   const toggleHandler = () => {
     dispatch(toggleSidebar());

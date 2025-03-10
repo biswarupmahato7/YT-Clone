@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import VideoUpload from "./components/VideoUpload";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import axios from "axios";
 
 const appRouter = createBrowserRouter([
   {

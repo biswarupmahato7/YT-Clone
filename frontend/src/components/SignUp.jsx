@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import axios from "axios"
+import {toast, ToastContainer} from 'react-toastify'
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -38,11 +39,37 @@ const SignUp = () => {
     }
 
   }
+  // handel sign-up
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log("Signing up with:", { email, password, channelName, profilePic });
+  
+    // Create payload object
+    const payload = {
+      email,
+      password,
+      channelName,
+      profilePic, // The uploaded image URL from Cloudinary
+    };
+  
+    try {
+      const response = await axios.post("http://localhost:4000/user/signup", payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      if (response.status === 201) {
+        toast.success("Account created successfully!");
+      } else {
+        toast.error("Something went wrong. Try again!");
+      }
+    } catch (error) {
+      console.error("Sign-up error:", error);
+      toast.error(error.response?.data?.message || "Error signing up.");
+    }
   };
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white px-6 lg:min-w-[86%] xl:min-w-[86%] w-full ">
@@ -93,6 +120,7 @@ const SignUp = () => {
           />
 
           <button
+            onClick={handleSignUp}
             type="submit"
             className="w-full py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-all"
           >
@@ -113,6 +141,8 @@ const SignUp = () => {
           </p>
         </div>
       </div>
+
+      <ToastContainer/>
     </div>
   );
 };
