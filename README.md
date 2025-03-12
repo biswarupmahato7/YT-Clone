@@ -1,7 +1,7 @@
 # YouTube Clone
 # NOTE: Sometimes the YouTube API stops working due to too many requests. In that case, please follow my video for a demo.
 
-Click here 👇👇👇👇
+### Click here 👇👇👇👇
 [![YouTube Clone Demo](https://img.youtube.com/vi/r1VlFXvhGmA/0.jpg)](https://youtu.be/r1VlFXvhGmA?si=C8eEyUHUpJT98fba)
 
 A fully functional **YouTube Clone** built with **React.js, Redux, Node.js, Express.js, MongoDB, Firebase, and Tailwind CSS**. The project includes features like user authentication, video uploads, search functionality, comments, likes/dislikes, and real-time updates.
