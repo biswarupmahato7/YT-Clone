@@ -24,8 +24,8 @@ const VideoContainer = () => {
   };
   const fetchVideoByCategory =async ()=>{
      try{
-      const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${category}&type=video&key=AIzaSyBG7LCfuSTL6lMEqEUCs3iqm7WgQfOC7PU`)
-      //console.log(res.data)
+      const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${category}&type=video&key=AIzaSyCg_Qbldmrify43Hc1UpUDZgWGlAp1Ndvo`)
+      
       dispatch(setHomeVideo(res?.data?.items))
      }catch(error){
           console.log(error)

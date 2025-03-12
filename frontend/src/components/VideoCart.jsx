@@ -17,7 +17,7 @@ const VideoCart = ({ item }) => {
   const getYoutubeChannelIcon = async () => {
     try {
       const res = await axios.get(
-        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${item.snippet.channelId}&key=AIzaSyBG7LCfuSTL6lMEqEUCs3iqm7WgQfOC7PU`
+        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${item.snippet.channelId}&key=AIzaSyDD5BpZSzVz_mh1w079o8sZ2mpvsa6_gt8`
       );
       setYtIcon(res.data.items[0]?.snippet?.thumbnails?.high?.url || "");
     } catch (error) {
@@ -28,7 +28,7 @@ const VideoCart = ({ item }) => {
   const getVideoStatistics = async () => {
     try {
       const res = await axios.get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${item.id.videoId}&key=AIzaSyBG7LCfuSTL6lMEqEUCs3iqm7WgQfOC7PU`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${item.id.videoId}&key=AIzaSyDD5BpZSzVz_mh1w079o8sZ2mpvsa6_gt8`
       );
       setViewCount(res.data.items[0]?.statistics?.viewCount || 0);
     } catch (error) {

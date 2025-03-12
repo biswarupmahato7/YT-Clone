@@ -1,35 +1,36 @@
 import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom"; // Import useNavigate
+import { useDispatch } from "react-redux"; 
+import { useNavigate, NavLink } from "react-router-dom"; 
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { login } from "../redux/authSlice"; // Import login action
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Initialize navigate hook
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch(); // Initialize Redux dispatch
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      email,
-      password,
-    };
+    const payload = { email, password };
 
     try {
       const response = await axios.post("http://localhost:4000/user/login", payload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true, // If using authentication cookies
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
       });
 
       if (response.status === 200) {
         toast.success("Login Successful!");
 
+        // Dispatch login action to update Redux state
+        dispatch(login(response.data.user));
+
         setTimeout(() => {
-          navigate("/"); // Redirect to Home Page after success
-        }, 2000); // Delay for toast message to display
+          navigate("/");
+        }, 2000); 
       } else {
         toast.error("Invalid credentials. Please try again.");
       }

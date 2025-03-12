@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import VideoUpload from "./components/VideoUpload";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
 import axios from "axios";
 
 const appRouter = createBrowserRouter([
@@ -35,7 +36,11 @@ const appRouter = createBrowserRouter([
       {
         path: '/sign-up',
         element: <SignUp/>
-      }
+      },
+      {
+        path: "/profile/:userId", 
+        element: <Profile />,
+      },
     ]
   }
 ])
