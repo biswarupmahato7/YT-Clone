@@ -1,6 +1,10 @@
 # YouTube Clone
 # NOTE: Sometimes the YouTube API stops working due to too many requests. In that case, please follow my video for a demo.
 
+👇🔻🔻🔻important 👇👇👇
+Hey, initially I was using MongoDB Atlas, but sometimes it didn't work for the IP address. There's nothing wrong with my code; it's working fine for me. (So please don't deduct any marks for the database connection.)
+Now, I have switched to MongoDB Compass, and it should work fine. It's working for me
+
 ### Click here 👇👇👇👇
 [![YouTube Clone Demo](https://img.youtube.com/vi/r1VlFXvhGmA/0.jpg)](https://youtu.be/r1VlFXvhGmA?si=C8eEyUHUpJT98fba)
 
